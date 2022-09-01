@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  tomcat9:
+    image: tomcat:9.0
+    container_name: app001
+    restart: unless-stopped
+    environment:
+      - TZ=America/Argentina/Mendoza
+    ports:
+      - "9001:8080"
+    volumes:
+      - ./conf:/usr/local/tomcat/conf
+      - ./webapps:/usr/local/tomcat/webapps
+####
+#CATALINA_BASE:   /usr/local/tomcat
+#CATALINA_HOME:   /usr/local/tomcat
+#CATALINA_TMPDIR: /usr/local/tomcat/temp
+#JRE_HOME:        /usr
+#CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
